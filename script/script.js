@@ -24,7 +24,7 @@ menuClose.addEventListener('click', function () {
 addSection.addEventListener('click', function () {
 
     // Add New Section
-    const sectionName = prompt("New Section Name:");
+    const sectionName = prompt("New Section Name:").replace(/\W/g, '');
     const sectionExist = document.getElementById(sectionName);
     if (sectionName === null) {
         return;
