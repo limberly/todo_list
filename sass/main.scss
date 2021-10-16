@@ -1,0 +1,229 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+$primary-color: #b8e994;
+$secondary-color: #78e08f;
+$primary-background: #6a89cc;
+$secondary-background: #4a69bd;
+$primary-text-color: #fad390;
+$secondary-text-color: #38ada9;
+$delete-color: #eb2f06;
+
+@keyframes menu-animation {
+    from {
+        top: -30%;
+        opacity: 30%;
+    }
+    
+    to {
+        top: 1.5rem;
+        opacity: 100%;
+    }
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+body {
+    background-color: $primary-background;
+}
+
+.heading {
+    &-primary {
+        margin-top: 2rem;
+    }
+
+    &-secondary {
+      margin: auto auto;
+    }
+
+    &-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+}
+
+.nav {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    width: 100vw;
+    height: 7vh;
+    background-color: rgba($color: $secondary-background, $alpha: .8);
+    color: $primary-text-color;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    box-shadow: 1px 2px rgba(0,0,0,0.1) ;
+
+    &-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+
+        width: 60%;
+    }
+    
+    &-menu {
+        &--open {
+            cursor: pointer;
+        }
+
+        &--close {
+            display: none;
+            cursor: pointer;
+        }
+
+    }
+
+    &-list {
+        position: absolute;
+        top: 1.5rem;
+        right: 0;
+        display: none;  
+        flex-direction: column;
+        align-items: flex-end;
+        animation: menu-animation .2s;
+        font-size: 1.5rem;
+    }
+
+    &-element {
+        list-style: none;
+        background-color: $secondary-background;
+        padding: 2px;
+        border: 1px solid $primary-text-color;
+        border-radius: 2px;
+    }
+
+    &-link {
+        text-decoration: none;
+        color:$primary-text-color;
+        &:visited {
+            color:$primary-text-color;
+        }
+    }
+}
+
+.add {
+
+  &-section {
+    cursor: pointer;
+  }
+
+  &-task {
+    margin-top: .5rem;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: #fa983a;
+    cursor: pointer;
+  }
+
+  &-task-container {
+    position: fixed;
+    top : 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    height: 40vh;
+    background-color: rgba($primary-color, 0.5);
+    color: $secondary-color;
+    border-radius: 3px;
+  }
+
+  &-task-body {
+    position: absolute;
+    top : 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+  }
+
+  &-task-background {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(5px) brightness(0.9);
+
+  }
+
+  &-task-close {
+    position: absolute;
+    z-index: 999;
+    top: 2px;
+    right: 2px;
+    color: black;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+}
+
+.section {
+  margin-bottom: 2rem;
+  // position: relative;
+  
+  &:first-of-type {
+      margin-top: 4rem;
+  }
+
+  &-body {
+    margin: auto;
+    width: 90%;
+    text-align: center;
+    background-color: $primary-color;
+    color:$secondary-text-color;
+    border-radius: 3px;
+    box-shadow: 2px 3px rgba(0, 0,0 , 0.1);
+  }
+
+  &-delete {
+    position: absolute;
+    top: 3%;
+    right: 1%;
+    color: $delete-color;
+    cursor: pointer;
+  }
+
+}
+
+.task {
+  &-list {
+    position: relative;
+    left: 50%;
+    transform: translateX(-35%);
+    width: 70%;
+  }
+
+  &-element {
+    font-size: 1.5rem;
+    &-content {
+      display: flex;
+      justify-content: space-around;
+      font-weight: bold;
+    }
+  }
+
+  &-delete {
+    color: $delete-color;
+    cursor: pointer;
+  }
+}
